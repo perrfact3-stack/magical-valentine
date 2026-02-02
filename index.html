@@ -9,12 +9,12 @@
       text-align: center;
       font-family: "Trebuchet MS", Arial, sans-serif;
       background: linear-gradient(135deg, #c7a8ff, #ffe6ff);
-      overflow: hidden;
-      height: 100vh;
+      overflow-x: hidden;
+      min-height: 100vh;
     }
 
     h1 {
-      margin-top: 60px;
+      margin-top: 40px;
       color: white;
       text-shadow: 0 0 10px #ffb3ff;
       font-size: 36px;
@@ -36,7 +36,7 @@
 
     /* Puppy image */
     #puppy {
-      margin-top: 20px;
+      margin-top: 10px;
       width: 200px;
       height: 200px;
       border-radius: 20px;
@@ -49,14 +49,84 @@
       from { transform: scale(0.6); opacity: 0; }
       to { transform: scale(1); opacity: 1; }
     }
+
+    /* Speech bubble */
+    #bubble {
+      margin: 20px auto;
+      width: 300px;
+      padding: 15px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.8);
+      font-size: 20px;
+      color: #5a2d82;
+      text-shadow: 0 0 5px white;
+      animation: bubbleAppear 1.5s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes bubbleAppear {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Buttons */
+    #buttons {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin: 10px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.7);
+      transition: 0.2s;
+    }
+
+    #yesBtn {
+      background: #d28bff;
+      color: white;
+    }
+
+    #yesBtn:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 15px white;
+    }
+
+    #noBtn {
+      background: #ff9bb3;
+      color: white;
+      position: relative;
+    }
   </style>
 </head>
 <body>
 
 <h1>✨ Magical Puppy Valentine ✨</h1>
 
-<!-- Placeholder puppy image -->
+<!-- Puppy -->
 <img id="puppy" src="https://place-puppy.com/300x300" alt="Cute Puppy">
+
+<!-- Speech bubble -->
+<div id="bubble">
+  Will you be my Valentine… as a friend?
+</div>
+
+<!-- Buttons -->
+<div id="buttons">
+  <button id="yesBtn">Yes 💖</button>
+  <button id="noBtn">No 😭</button>
+</div>
+
+<!-- Placeholder video spot -->
+<div style="margin-top:30px;">
+  <video id="video" width="300" controls>
+    <source src="video.mp4" type="video/mp4">
+  </video>
+</div>
 
 <script>
   // Floating sparkles
@@ -67,9 +137,26 @@
     s.style.left = Math.random() * window.innerWidth + "px";
     s.style.top = "600px";
     document.body.appendChild(s);
-
     setTimeout(() => s.remove(), 4000);
   }, 400);
+
+  // No button runs away
+  let runCount = 0;
+  const noBtn = document.getElementById("noBtn");
+
+  noBtn.addEventListener("mouseover", () => {
+    if (runCount < 5) {
+      noBtn.style.position = "absolute";
+      noBtn.style.left = Math.random() * 80 + "%";
+      noBtn.style.top = Math.random() * 80 + "%";
+      runCount++;
+    }
+  });
+
+  // Yes button message
+  document.getElementById("yesBtn").addEventListener("click", () => {
+    alert("YAY! The puppy is happy! 💖🐶");
+  });
 </script>
 
 </body>
