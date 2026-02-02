@@ -20,7 +20,6 @@
       font-size: 36px;
     }
 
-    /* Sparkles */
     .sparkle {
       position: absolute;
       color: white;
@@ -34,7 +33,6 @@
       to { transform: translateY(-600px); opacity: 0; }
     }
 
-    /* Puppy image */
     #puppy {
       margin-top: 10px;
       width: 200px;
@@ -50,7 +48,6 @@
       to { transform: scale(1); opacity: 1; }
     }
 
-    /* Speech bubble */
     #bubble {
       margin: 20px auto;
       width: 300px;
@@ -70,7 +67,6 @@
       to { transform: translateY(0); opacity: 1; }
     }
 
-    /* Buttons */
     #buttons {
       margin-top: 20px;
     }
@@ -110,6 +106,11 @@
 <!-- Background music -->
 <audio id="bgmusic" src="bgmusic.mp3" autoplay loop></audio>
 
+<!-- Sound effects -->
+<audio id="bark" src="bark.mp3"></audio>
+<audio id="chime" src="chime.mp3"></audio>
+<audio id="yesSound" src="yes-sound.mp3"></audio>
+
 <!-- Puppy -->
 <img id="puppy" src="https://place-puppy.com/300x300" alt="Cute Puppy">
 
@@ -124,7 +125,7 @@
   <button id="noBtn">No 😭</button>
 </div>
 
-<!-- Placeholder video -->
+<!-- Video -->
 <div style="margin-top:30px;">
   <video id="video" width="300" controls>
     <source src="video.mp4" type="video/mp4">
@@ -144,6 +145,17 @@
       clearInterval(fade);
     }
   }, 200);
+
+  // Sound effects
+  const bark = document.getElementById("bark");
+  const chime = document.getElementById("chime");
+  const yesSound = document.getElementById("yesSound");
+
+  // Play bark when puppy appears
+  setTimeout(() => bark.play(), 800);
+
+  // Play chime when bubble appears
+  setTimeout(() => chime.play(), 1500);
 
   // Floating sparkles
   setInterval(() => {
@@ -169,8 +181,9 @@
     }
   });
 
-  // Yes button message
+  // Yes button sound + message
   document.getElementById("yesBtn").addEventListener("click", () => {
+    yesSound.play();
     alert("YAY! The puppy is happy! 💖🐶");
   });
 </script>
