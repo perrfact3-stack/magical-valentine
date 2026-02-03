@@ -74,7 +74,7 @@
 
     #valVideo {
         display: none;
-        width: 90%;
+        width: 60%;
         margin-top: 25px;
         border-radius: 12px;
         opacity: 0;
@@ -148,7 +148,7 @@
 <img id="mainImage" src="rotc.png" alt="ROTC Cartoon">
 
 <!-- Speech Bubble -->
-<div id="speech">Will you be my Valentine... as a friend?</div>
+<div id="speech">Will you be my Valentine?</div>
 
 <!-- Buttons -->
 <div id="buttons">
@@ -163,18 +163,19 @@
 <div id="yesMessage">She said YES!!! 💖🎉</div>
 
 <script>
-    // ⭐ TAP TO UNLOCK AUDIO + CONTROL TIMING ⭐
+    // ⭐ TAP TO UNLOCK AUDIO ⭐
     document.body.addEventListener("click", () => {
         const bg = document.getElementById("bgmusic");
         const bark = document.getElementById("bark");
         const chime = document.getElementById("chime");
         const voice = document.getElementById("voice");
 
-        bg.play();
+        bg.play(); // starts immediately
 
-        setTimeout(() => bark.play(), 800);
-        setTimeout(() => chime.play(), 2000);
-        setTimeout(() => voice.play(), 2000);
+        // other sounds start 5 seconds later
+        setTimeout(() => bark.play(), 5000);
+        setTimeout(() => chime.play(), 5000);
+        setTimeout(() => voice.play(), 5000);
     }, { once: true });
 
     // Fade in image
