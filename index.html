@@ -156,13 +156,16 @@
     <button id="noBtn">No 😭</button>
 </div>
 
-<!-- Hidden Video (muted so autoplay works) -->
+<!-- Hidden Video -->
 <video id="valVideo" src="video.mp4" controls muted></video>
 
 <!-- She said YES message -->
 <div id="yesMessage">She said YES!!! 💖🎉</div>
 
 <script>
+    // Lower background music volume
+    document.getElementById("bgmusic").volume = 0.3;
+
     // Fade in image
     setTimeout(() => {
         document.getElementById("mainImage").style.opacity = 1;
@@ -220,7 +223,7 @@
         }
     }
 
-    // Yes button → show video + play yes sound + effects
+    // YES button
     yesBtn.addEventListener("click", () => {
         document.getElementById("yesSound").play();
 
@@ -235,7 +238,7 @@
         confettiBurst(40);
     });
 
-    // No button messages + run away
+    // NO button
     let noClickCount = 0;
     const noMessages = [
         "Really?",
