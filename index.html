@@ -163,7 +163,7 @@
 <div id="yesMessage">She said YES!!! 💖🎉</div>
 
 <script>
-    // ⭐ TAP TO UNLOCK AUDIO + VIDEO (fix for phones)
+    // TAP TO UNLOCK AUDIO + VIDEO (fix for phones)
     document.body.addEventListener("click", () => {
         document.getElementById("bgmusic").play();
         document.getElementById("bark").play();
@@ -171,9 +171,6 @@
         document.getElementById("voice").play();
         document.getElementById("valVideo").play();
     }, { once: true });
-
-    // Lower background music volume
-    document.getElementById("bgmusic").volume = 0.3;
 
     // Fade in image
     setTimeout(() => {
