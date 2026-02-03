@@ -30,6 +30,14 @@
         100% { box-shadow: 0 0 25px rgba(255, 255, 255, 1); }
     }
 
+    #tapMessage {
+        font-size: 18px;
+        color: #b30059;
+        margin-top: 10px;
+        opacity: 0;
+        transition: opacity 1.5s ease-in;
+    }
+
     #speech {
         font-size: 24px;
         margin-top: 20px;
@@ -134,7 +142,7 @@
 <body>
 
 <!-- Background Music -->
-<audio id="bgmusic" src="bgmusic.mp3" loop></audio>
+<audio id="bgmusic" src="bgmusic.mp3" autoplay loop></audio>
 
 <!-- Sound Effects -->
 <audio id="bark" src="bark.wav"></audio>
@@ -146,6 +154,9 @@
 
 <!-- Main Image -->
 <img id="mainImage" src="rotc.png" alt="ROTC Cartoon">
+
+<!-- Tap Message -->
+<div id="tapMessage">Tap the screen to start the music 🎵</div>
 
 <!-- Speech Bubble -->
 <div id="speech">Will you be my Valentine?</div>
@@ -163,35 +174,36 @@
 <div id="yesMessage">She said YES!!! 💖🎉</div>
 
 <script>
-    // ⭐ TAP TO UNLOCK AUDIO ⭐
-    document.body.addEventListener("click", () => {
-        const bg = document.getElementById("bgmusic");
-        const bark = document.getElementById("bark");
-        const chime = document.getElementById("chime");
-        const voice = document.getElementById("voice");
-
-        bg.play(); // starts immediately
-
-        // other sounds start 5 seconds later
-        setTimeout(() => bark.play(), 5000);
-        setTimeout(() => chime.play(), 5000);
-        setTimeout(() => voice.play(), 5000);
-    }, { once: true });
-
     // Fade in image
     setTimeout(() => {
         document.getElementById("mainImage").style.opacity = 1;
     }, 800);
 
+    // Fade in tap message
+    setTimeout(() => {
+        document.getElementById("tapMessage").style.opacity = 1;
+    }, 1500);
+
     // Fade in speech
     setTimeout(() => {
         document.getElementById("speech").style.opacity = 1;
-    }, 2000);
+    }, 2500);
 
     // Fade in buttons
     setTimeout(() => {
         document.getElementById("buttons").style.opacity = 1;
-    }, 3200);
+    }, 3500);
+
+    // AUDIO TIMING
+    window.addEventListener("click", () => {
+        const bark = document.getElementById("bark");
+        const chime = document.getElementById("chime");
+        const voice = document.getElementById("voice");
+
+        setTimeout(() => bark.play(), 5000);
+        setTimeout(() => chime.play(), 5000);
+        setTimeout(() => voice.play(), 5000);
+    }, { once: true });
 
     const yesBtn = document.getElementById("yesBtn");
     const noBtn = document.getElementById("noBtn");
@@ -247,8 +259,9 @@
         confettiBurst(40);
     });
 
-    // NO button (moving)
+    // NO BUTTON
     let noClickCount = 0;
+
     const noMessages = [
         "Really?",
         "Are you sure?",
