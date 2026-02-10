@@ -86,7 +86,120 @@
     const lyrics = [
         { start: 4, end: 19, text: "Bailey — she could have anyone in the world" },
         { start: 22, end: 33, text: "Floats in a golden gown, beautiful soul ✨" },
-        { start: 38, end: 49, text: "How can I compete with her?" },
+        { start: 38, end: 49, text: "How can I<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bailey 💖</title>
+
+<style>
+    body {
+        background: pink;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: 100vh;
+    }
+
+    h1 {
+        position: absolute;
+        top: 20px;
+        width: 100%;
+        text-align: center;
+        color: #ff1f7a;
+        font-size: 32px;
+    }
+
+    .container {
+        display: flex;
+        width: 90%;
+        max-width: 1100px;
+        gap: 20px;
+        margin-top: 100px;
+    }
+
+    #videoBox {
+        width: 40%;
+        border-radius: 12px;
+        opacity: 0;
+        transition: opacity 1.5s ease-in;
+    }
+
+    #lyricsBox {
+        width: 60%;
+        background: white;
+        border-radius: 12px;
+        padding: 20px;
+        font-size: 22px;
+        color: #ff1f7a;
+        font-weight: bold;
+        text-align: center;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+</style>
+</head>
+<body>
+
+<h1>Bailey 💖</h1>
+
+<audio id="bgmusic" src="bgmusic3.mp3" autoplay loop></audio>
+
+<div class="container">
+    <video id="videoBox" src="video.mp4" autoplay muted loop playsinline></video>
+    <div id="lyricsBox"></div>
+</div>
+
+<script>
+    const video = document.getElementById("videoBox");
+    setTimeout(() => {
+        video.style.opacity = 1;
+    }, 300);
+
+    const lyrics = [
+        { start: 2, end: 15, text: "Bailey, she could have anyone in the world" },
+        { start: 15, end: 20, text: "Floats around town in her golden gown" },
+        { start: 20, end: 28, text: "Born in a castle on a cloud" },
+
+        { start: 28, end: 32, text: "Bailey, prettiest girl that I know" },
+        { start: 32, end: 39, text: "Stars in her eyes, handpicked from the skies" },
+        { start: 39, end: 43, text: "Beautiful soul" },
+
+        { start: 43, end: 49, text: "How can I compete with her?" },
+        { start: 49, end: 57, text: "Perfection is the only word I think of when I think of Bailey" },
+        { start: 57, end: 69, text: "She doesn't know that the world is turning just for her" },
+        { start: 69, end: 76, text: "I wish I could be Bailey" },
+
+        { start: 92, end: 100, text: "Bailey, she could move oceans and rivers with ease" },
+        { start: 100, end: 108, text: "A word from her lips, her siren's kiss" },
+        { start: 108, end: 116, text: "Will send you straight into a trance" },
+        { start: 116, end: 124, text: "I wish she'd give her secrets away" },
+        { start: 124, end: 132, text: "Enchants everyone — to be like her someday" },
+        { start: 132, end: 140, text: "But I cannot compete with her affections" },
+        { start: 140, end: 150, text: "The only word I think of when I think of Bailey" },
+        { start: 150, end: 160, text: "She doesn't know that the world is turning just for her" },
+        { start: 160, end: 170, text: "I wish I could be with Bailey Agian" }
+    ];
+
+    const audio = document.getElementById("bgmusic");
+    const box = document.getElementById("lyricsBox");
+
+    audio.addEventListener("timeupdate", () => {
+        const t = audio.currentTime;
+        const active = lyrics.find(l => t >= l.start && t <= l.end);
+        box.textContent = active ? active.text : "";
+    });
+</script>
+
+</body>
+</html>
+ compete with her?" },
         { start: 56, end: 72, text: "The world is turning just for her 💖" },
         { start: 93, end: 108, text: "Bailey moves oceans and rivers with ease 🌊" },
         { start: 111, end: 127, text: "Her siren kiss pulls you into the deep" },
